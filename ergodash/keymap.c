@@ -111,6 +111,14 @@ void persistent_default_layer_set(uint16_t default_layer) {
   default_layer_set(default_layer);
 }
 
+void changeHue(int val) {
+  int current_hue = rgblight_get_hue();
+  int current_sat = rgblight_get_sat();
+  int current_val = rgblight_get_val();
+
+  rgblight_sethsv(current_hue + val, current_sat, current_val);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QWERTY:
@@ -124,9 +132,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         layer_on(_LOWER);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+        changeHue(-85);
       } else {
         layer_off(_LOWER);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+        changeHue(85);
       }
       return false;
       break;
@@ -134,9 +144,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         layer_on(_RAISE);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+        changeHue(85);
       } else {
         layer_off(_RAISE);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+        changeHue(-85);
       }
       return false;
       break;
