@@ -14,6 +14,8 @@ enum custom_keycodes {
 };
 
 #define EISU LALT(KC_GRV)
+#define KCLL LT(_LOWER, KC_LANG2)
+#define KCRL LT(_RAISE, KC_LANG1)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -27,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+---------------------------+------+------+------+------+------+------+------|
    * | Shift|   Z  |   X  |   C  |   V  |   B  | Space|                    | Enter|   N  |   M  |   ,  |   .  |  Up  |   /  |
    * |-------------+------+------+------+------+------+------+------+------+------+------+------+------+------+-------------|
-   * | `    |  ALT |  GUI |      |  GUI | Lower| Space| Space|||||||| Enter| GUI  | Raise|      | Shift| Left | Down | Right|
+   * | `    |  ALT |  GUI |      |  GUI | Low / 英 | Space| Space|||||||| Enter| GUI  | Raise / かな|      | Shift| Left | Down | Right|
    * ,----------------------------------------------------------------------------------------------------------------------.
    * 
    */
@@ -36,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_MINS,                        KC_EQL , KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS, \
     KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_DEL ,                        KC_DEL,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_SPC ,                        KC_ENT , KC_N,    KC_M,    KC_COMM, KC_DOT, KC_UP , KC_SLSH, \
-     KC_GRV, KC_LALT, KC_LGUI,KC_LGUI, LOWER,    KC_SPC , KC_SPC,         KC_ENT,KC_RGUI, RAISE,            KC_RSFT, KC_LEFT, KC_DOWN,   KC_RGHT  \
+     KC_GRV, KC_LALT, KC_LGUI,KC_LGUI, KCLL,    KC_SPC , KC_SPC,         KC_ENT,KC_RGUI, KCRL,            KC_RSFT, KC_LEFT, KC_DOWN,   KC_RGHT  \
   ),
 
   /* Lower
